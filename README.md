@@ -17,6 +17,7 @@ Installation
         type touch database/database.sqlite to create the file
     type php artisan migrate
  How to Use
+ 
     type php artisan serve
     then it will go throught the server link
     then for the api:
