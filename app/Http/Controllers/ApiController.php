@@ -51,31 +51,31 @@ class ApiController extends Controller
 
     }
 
-    // public function logout(Request $request)
-    // {
-    //     // try {
-    //     //     $this->validate($request, [
-    //     //         'token' => 'required'
-    //     //     ]);
-    //     //     var_dump($request);    
-    //     //     JWTAuth::invalidate($request->token);
+    public function logout(Request $request)
+    {
+        try {
+            $this->validate($request, [
+                'token' => 'required'
+            ]);
+            var_dump($request);    
+            JWTAuth::invalidate($request->token);
  
-    //     //     return response()->json([
-    //     //         'success' => true,
-    //     //         'message' => 'User logged out successfully'
-    //     //     ]);
-    //     // } catch (JWTException $exception) {
-    //     //     return response()->json([
-    //     //         'success' => false,
-    //     //         'message' => 'Sorry, the user cannot be logged out'
-    //     //     ], 500);
-    //     // } catch(UnauthorizedHttpException $exception){
-    //     //     return response()->json([
-    //     //         'success' => false,
-    //     //         'message' => 'Please provide token'
-    //     //     ], 500);
-    //     // }
-    // }
+            return response()->json([
+                'success' => true,
+                'message' => 'User logged out successfully'
+            ]);
+        } catch (JWTException $exception) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Sorry, the user cannot be logged out'
+            ], 500);
+        } catch(UnauthorizedHttpException $exception){
+            return response()->json([
+                'success' => false,
+                'message' => 'Please provide token'
+            ], 500);
+        }
+    }
  
     public function getAuthUser(Request $request)
     {
